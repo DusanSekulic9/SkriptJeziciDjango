@@ -1,0 +1,56 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    Edit article
+{% endblock %}
+
+{% block content %}
+
+    <form method="post" action="{% url 'baza_telefoni:edit' id %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.marka.id_for_label }}">{{ form.marka.label_tag }}</label>
+            <input type="text" class="form-control" id="{{ form.marka.id_for_label }}" name="{{ form.marka.name }}" value="{{ form.marka.value }}">
+            {% if form.title.errors %}
+                <div class="alert alert-danger">
+                    <ul style="text-align: left">
+                        {% for error in form.title.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.naziv.id_for_label }}">{{ form.naziv.label_tag }}</label>
+            <input type="text" class="form-control" id="{{ form.naziv.id_for_label }}" name="{{ form.naziv.name }}" value="{{ form.naziv.value }}">
+            {% if form.content.errors %}
+                <div class="alert alert-danger">
+                    <ul style="text-align: left">
+                        {% for error in form.content.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.sistem.id_for_label }}">{{ form.sistem.label_tag }}</label>
+            <input type="text" class="form-control" id="{{ form.sistem.id_for_label }}" name="{{ form.sistem.name }}" value="{{ form.sistem.value }}">
+            {% if form.content.errors %}
+                <div class="alert alert-danger">
+                    <ul style="text-align: left">
+                        {% for error in form.content.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <input type="submit" class="btn btn-primary btn-lg" value="Save"/>
+    </form>
+
+{% endblock %}

@@ -8,7 +8,7 @@ class Article(models.Model):
     num_views = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, default='')
 
     def __str__(self):
         return self.marka + ' ' + self.naziv
@@ -20,7 +20,6 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    owner = models.ForeignKey(User, on_delete=models.CASCADE,default='')
     def __str__(self):
         return self.content

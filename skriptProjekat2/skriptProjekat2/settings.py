@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from . import confidental
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,16 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*v=^-n=bz=w%jw9ie+w04ste^p*gkew&k@r73-&9yb&s0obt!2'
+SECRET_KEY = confidental.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
-
-ALLOWED_TEST = []
 
 
 # Application definition
@@ -42,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'telefoni.apps.TelefoniConfig'
+    'baza_telefoni.apps.TelefoniConfig'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +57,7 @@ ROOT_URLCONF = 'skriptProjekat2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'telefoni/templates')],
+        'DIRS': ['templates',os.path.join(BASE_DIR, 'baza_telefoni/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,13 +80,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'skript_python',
-        'USER': 'root',
-        'PASSWORD': 'MDS123',
+        'USER': confidental.DATABASE_USER,
+        'PASSWORD': confidental.DATABASE_PASSWORD,
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
 }
 
+LOGIN_REDIRECT_URL = '/articles'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
