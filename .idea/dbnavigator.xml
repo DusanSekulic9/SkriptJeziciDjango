@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="c806f07f-9593-4d4d-aea0-15dfcf227e80">
-        <schema name="skript_python" object-types="table, view, dataset trigger, constraint, column, index, procedure, function" />
+        <schema name="skript_python" object-types="procedure, constraint, table, function, view, dataset trigger, column, index" />
       </connection>
     </loaded-nodes>
   </component>

@@ -10,6 +10,9 @@
                     <a href="{% url 'baza_telefoni:edit' article.id %}">
                         <span class="badge badge-primary">Edit</span>
                     </a>
+                    <a href="{% url 'baza_telefoni:delete' article.id %}">
+                        <span class="badge badge-primary">Delete</span>
+                    </a>
                 {% endif %}
             </h1>
         </div>
