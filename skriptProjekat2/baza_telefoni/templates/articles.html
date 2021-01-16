@@ -8,7 +8,7 @@
     <div class="list-group">
         {% for article in articles %}
             <a class="list-group-item list-group-item-action" href="{% url 'baza_telefoni:article' article.id %}">
-                {{ article.marka }}
+                {{ article.marka }} - {{ article.naziv}}
             </a>
         {% endfor %}
     </div>

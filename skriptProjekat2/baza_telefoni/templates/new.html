@@ -10,7 +10,7 @@
         {% csrf_token %}
         <div class="form-group">
             <label for="{{ form.marka.id_for_label }}">{{ form.marka.label_tag }}</label>
-            <input type="text" class="form-control" id="{{ form.marka.id_for_label }}" name="{{ form.marka.name }}" value="{{ form.marka.value }}">
+            <input type="text" class="form-control" id="{{ form.marka.id_for_label }}" maxlength="32" required name="{{ form.marka.name }}" value="{{ form.marka.value }}">
             {% if form.title.errors %}
                 <div class="alert alert-danger">
                     <ul style="text-align: left">
@@ -24,7 +24,7 @@
 
         <div class="form-group">
             <label for="{{ form.naziv.id_for_label }}">{{ form.naziv.label_tag }}</label>
-            <input type="text" class="form-control" id="{{ form.naziv.id_for_label }}" name="{{ form.naziv.name }}" value="{{ form.naziv.value }}">
+            <input type="text" class="form-control" id="{{ form.naziv.id_for_label }}" maxlength="32" required name="{{ form.naziv.name }}" value="{{ form.naziv.value }}">
             {% if form.content.errors %}
                 <div class="alert alert-danger">
                     <ul style="text-align: left">
@@ -38,7 +38,7 @@
 
         <div class="form-group">
             <label for="{{ form.sistem.id_for_label }}">{{ form.sistem.label_tag }}</label>
-            <input type="text" class="form-control" id="{{ form.sistem.id_for_label }}" name="{{ form.sistem.name }}" value="{{ form.sistem.value }}">
+            <input type="text" class="form-control" id="{{ form.sistem.id_for_label }}" maxlength="32" required name="{{ form.sistem.name }}" value="{{ form.sistem.value }}">
             {% if form.content.errors %}
                 <div class="alert alert-danger">
                     <ul style="text-align: left">
